@@ -1,0 +1,117 @@
+@import './../../scss/fonts.scss';
+@import './../../scss/variables.scss';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  max-height: 100%;
+}
+
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-size: $font-size-text-xs;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  margin: 0;
+  color: $primary-text-color;
+}
+
+.app {
+  background: $main-bg-color;
+  height: 100%;
+
+  &__wrapper {
+    padding: 30px 0 50px;
+  }
+
+  &__header {
+    margin-bottom: 30px;
+  }
+
+  &__logo {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: $width-main;
+    justify-content: center;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: $width-content;
+    flex-shrink: 0;
+  }
+
+  &__sidebar {
+    margin-right: 20px;
+    width: $width-sidebar;
+    flex-shrink: 0;
+  }
+
+  &__filter-burger {
+    display: none;
+  }
+}
+
+.show-more-tickets {
+  &__btn {
+    font-family: inherit;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-text-xs;
+    line-height: $line-height-m;
+    text-align: center;
+    letter-spacing: $letter-spacing;
+    text-transform: uppercase;
+    color: $btn-show-more-text-color;
+    background: $btn-show-more-bg-color;
+    border-radius: $border-radius;
+    height: $btn-height;
+    padding: 0 20px;
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    transition: opacity 0.4s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@media screen and #{$screen-m} {
+  .app {
+    &__sidebar {
+      margin: 0;
+      width: 100%;
+      max-width: $width-tablet-sidebar;
+      margin-bottom: 20px;
+    }
+
+    &__container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

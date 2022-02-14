@@ -1,0 +1,58 @@
+$tundora: #4a4a4a;
+$white: #ffffff;
+$dodger-blue: #2196f3;
+$gull-gray: #a0b0b9;
+$twilight-blue: #f1fcff;
+$catskill-white: #f3f7fa;
+$rock-blue: #9abbce;
+$mystic: #dfe5ec;
+
+$primary-text-color: $tundora;
+$secondary-text-color: $gull-gray;
+$brand-primary: $dodger-blue;
+
+$filter-hover: $twilight-blue;
+$main-bg-color: $catskill-white;
+$filter-bg-color: $white;
+$ticket-bg-color: $white;
+$unactive-tab-bg-color: $white;
+$active-tab-bg-color: $brand-primary;
+$active-tab-text-color: $white;
+$unactive-tab-text-color: $primary-text-color;
+$filter-text-color: $primary-text-color;
+$price-color: $brand-primary;
+$btn-show-more-text-color: $white;
+$btn-show-more-bg-color: $brand-primary;
+$box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+$checkbox-color: $rock-blue;
+
+$btn-height: 50px;
+$segment-route-col-width: 141px;
+
+$window-width-big-mobile: 480px;
+$window-width-tablet: 768px;
+
+$screen-s: '(max-width: #{$window-width-big-mobile})';
+$screen-m: '(max-width: #{$window-width-tablet})';
+
+$font-size-text-l: 24px;
+$font-size-text-m: 14px;
+$font-size-text-s: 13px;
+$font-size-text-xs: 12px;
+
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+
+$line-height-l: 24px;
+$line-height-m: 20px;
+$line-height-s: 18px;
+$line-height-xs: 12px;
+
+$letter-spacing: 0.5px;
+
+$width-main: 754px;
+$width-sidebar: 232px;
+$width-tablet-sidebar: 504px;
+$width-content: 504px;
+
+$border-radius: 5px;
