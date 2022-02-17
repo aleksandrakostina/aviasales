@@ -6,7 +6,7 @@
   margin-bottom: 20px;
 
   &__btn {
-    width: 50%;
+    width: calc(100% / 3);
     height: $btn-height;
     background: $unactive-tab-bg-color;
     border: 1px solid $mystic;
@@ -36,6 +36,24 @@
       background: $active-tab-bg-color;
       border: transparent;
       color: $active-tab-text-color;
+    }
+  }
+}
+
+@media screen and #{$screen-s} {
+  .tabs {
+    flex-direction: column;
+
+    &__btn {
+      width: 100%;
+
+      &:first-child {
+        border-radius: 5px 5px 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 5px 5px;
+      }
     }
   }
 }

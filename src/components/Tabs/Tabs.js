@@ -1,16 +1,41 @@
 import React from 'react';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import style from './Tabs.module.scss';
+import { setSort } from '../../redax/actions';
+import { tabs } from '../../redax/tabs';
 
-const Tabs = () => (
-  <div className={style.tabs}>
-    <button className={classnames(style.tabs__btn, style['tabs__btn--active'])} type="button">
-      Самый дешевый
+const Tabs = ({ changeSort, sort }) => {
+  const tabsList = tabs.map((tab) => (
+    <button
+      key={tab.id}
+      className={classnames(style.tabs__btn, { [style['tabs__btn--active']]: tab.id === sort })}
+      type="button"
+      onClick={() => changeSort(tab.id)}
+    >
+      {tab.name}
     </button>
-    <button className={style.tabs__btn} type="button">
-      Самый быстрый
-    </button>
-  </div>
-);
+  ));
 
-export default Tabs;
+  return <div className={style.tabs}>{tabsList}</div>;
+};
+
+Tabs.defaultProps = {
+  changeSort: () => {},
+};
+
+Tabs.propTypes = {
+  changeSort: PropTypes.func,
+  sort: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  sort: state.sort,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  changeSort: (id) => dispatch(setSort(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tabs);
