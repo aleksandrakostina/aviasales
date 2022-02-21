@@ -75,31 +75,6 @@ body {
   }
 }
 
-.show-more-tickets {
-  &__btn {
-    font-family: inherit;
-    font-weight: $font-weight-semibold;
-    font-size: $font-size-text-xs;
-    line-height: $line-height-m;
-    text-align: center;
-    letter-spacing: $letter-spacing;
-    text-transform: uppercase;
-    color: $btn-show-more-text-color;
-    background: $btn-show-more-bg-color;
-    border-radius: $border-radius;
-    height: $btn-height;
-    padding: 0 20px;
-    width: 100%;
-    border: 0;
-    cursor: pointer;
-    transition: opacity 0.4s;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-}
-
 @media screen and #{$screen-m} {
   .app {
     &__sidebar {

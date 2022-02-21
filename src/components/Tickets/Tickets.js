@@ -1,188 +1,59 @@
-import React from 'react';
-import carrier from './carrier.png';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getTickets } from '../../redax/actions';
 import style from './Tickets.module.scss';
+import Ticket from '../Ticket';
+import {ReactComponent as Loading} from './spinner.svg';
 
-const Tickets = () => (
-  <div className={style.tickets}>
-    <ul className={style.tickets__list}>
-      <li className={style.tickets__item}>
-        <a href="#" className={style.ticket}>
-          <div className={style.ticket__header}>
-            <div className={style.ticket__price}>13 400 Р</div>
-            <div className={style.ticket__carrier}>
-              <img src={carrier} alt="carrier" />
-            </div>
-          </div>
-          <div className={style.ticket__body}>
-            <div className={style['segment-route']}>
-              <div className={style['segment-route__body']}>
-                <div className={style['segment-route__row']}>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>MOW – HKT</div>
-                    <div className={style['segment-route__text']}>10:45 – 08:00</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>В пути</div>
-                    <div className={style['segment-route__text']}>21ч 15м</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>2 пересадки</div>
-                    <div className={style['segment-route__text']}>HKG, JNB</div>
-                  </div>
-                </div>
-                <div className={style['segment-route__row']}>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>MOW – HKT</div>
-                    <div className={style['segment-route__text']}>11:20 – 00:50</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>В пути</div>
-                    <div className={style['segment-route__text']}>13ч 30м</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>1 пересадка</div>
-                    <div className={style['segment-route__text']}>HKG</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li className={style.tickets__item}>
-        <a href="#" className={style.ticket}>
-          <div className={style.ticket__header}>
-            <div className={style.ticket__price}>13 400 Р</div>
-            <div className={style.ticket__carrier}>
-              <img src={carrier} alt="carrier" />
-            </div>
-          </div>
-          <div className={style.ticket__body}>
-            <div className={style['segment-route']}>
-              <div className={style['segment-route__body']}>
-                <div className={style['segment-route__row']}>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>MOW – HKT</div>
-                    <div className={style['segment-route__text']}>10:45 – 08:00</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>В пути</div>
-                    <div className={style['segment-route__text']}>21ч 15м</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>2 пересадки</div>
-                    <div className={style['segment-route__text']}>HKG, JNB</div>
-                  </div>
-                </div>
-                <div className={style['segment-route__row']}>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>MOW – HKT</div>
-                    <div className={style['segment-route__text']}>11:20 – 00:50</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>В пути</div>
-                    <div className={style['segment-route__text']}>13ч 30м</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>1 пересадка</div>
-                    <div className={style['segment-route__text']}>HKG</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li className={style.tickets__item}>
-        <a href="#" className={style.ticket}>
-          <div className={style.ticket__header}>
-            <div className={style.ticket__price}>13 400 Р</div>
-            <div className={style.ticket__carrier}>
-              <img src={carrier} alt="carrier" />
-            </div>
-          </div>
-          <div className={style.ticket__body}>
-            <div className={style['segment-route']}>
-              <div className={style['segment-route__body']}>
-                <div className={style['segment-route__row']}>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>MOW – HKT</div>
-                    <div className={style['segment-route__text']}>10:45 – 08:00</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>В пути</div>
-                    <div className={style['segment-route__text']}>21ч 15м</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>2 пересадки</div>
-                    <div className={style['segment-route__text']}>HKG, JNB</div>
-                  </div>
-                </div>
-                <div className={style['segment-route__row']}>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>MOW – HKT</div>
-                    <div className={style['segment-route__text']}>11:20 – 00:50</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>В пути</div>
-                    <div className={style['segment-route__text']}>13ч 30м</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>1 пересадка</div>
-                    <div className={style['segment-route__text']}>HKG</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li className={style.tickets__item}>
-        <a href="#" className={style.ticket}>
-          <div className={style.ticket__header}>
-            <div className={style.ticket__price}>13 400 Р</div>
-            <div className={style.ticket__carrier}>
-              <img src={carrier} alt="carrier" />
-            </div>
-          </div>
-          <div className={style.ticket__body}>
-            <div className={style['segment-route']}>
-              <div className={style['segment-route__body']}>
-                <div className={style['segment-route__row']}>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>MOW – HKT</div>
-                    <div className={style['segment-route__text']}>10:45 – 08:00</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>В пути</div>
-                    <div className={style['segment-route__text']}>21ч 15м</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>2 пересадки</div>
-                    <div className={style['segment-route__text']}>HKG, JNB</div>
-                  </div>
-                </div>
-                <div className={style['segment-route__row']}>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>MOW – HKT</div>
-                    <div className={style['segment-route__text']}>11:20 – 00:50</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>В пути</div>
-                    <div className={style['segment-route__text']}>13ч 30м</div>
-                  </div>
-                  <div className={style['segment-route__col']}>
-                    <div className={style['segment-route__header']}>1 пересадка</div>
-                    <div className={style['segment-route__text']}>HKG</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-);
+const Tickets = ({ getTicketsList, tickets, isLoading, isError }) => {
+  
+  useEffect(() => {
+    getTicketsList();
+  }, [getTicketsList]);
 
-export default Tickets;
+  const ticketsList = tickets.map(ticket => (
+    <li key={ticket.id} className={style.tickets__item}>
+      <Ticket ticket={ticket} />
+    </li>)
+  )
+
+  const hasContent = !isLoading && !isError;
+  const error = isError && !isLoading;
+    
+  return (
+    <>
+      {error && <p className={style.tickets__error}>Не удалось загрузить билеты</p>}
+      {isLoading && <Loading />}
+      {hasContent &&
+      <>
+        <ul className={style.tickets}>
+          {ticketsList}
+        </ul>
+        <button className={style['tickets__show-more-btn']} type="button">
+          Показать еще 5 билетов!
+        </button>
+      </>
+      }
+    </>
+  );
+}
+
+Tickets.propTypes  = {
+  getTicketsList: PropTypes.func.isRequired,
+  tickets: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  tickets: state.tickets.tickets,
+  isLoading: state.tickets.isLoading,
+  isError: state.tickets.isError,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  getTicketsList: () => dispatch(getTickets())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tickets);

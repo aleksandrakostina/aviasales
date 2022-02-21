@@ -1,6 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 import logo from './Logo.png';
 import style from './App.module.scss';
 import Tickets from '../Tickets';
@@ -8,7 +10,7 @@ import Filters from '../Filters';
 import Tabs from '../Tabs';
 import reducers from '../../redax/reducers';
 
-const store = createStore(reducers);
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 
 const App = () => (
   <Provider store={store}>
@@ -25,11 +27,6 @@ const App = () => (
             <div className={style.app__content}>
               <Tabs />
               <Tickets />
-              <div className={style['show-more-tickets']}>
-                <button className={style['show-more-tickets__btn']} type="button">
-                  Показать еще 5 билетов!
-                </button>
-              </div>
             </div>
           </div>
         </main>

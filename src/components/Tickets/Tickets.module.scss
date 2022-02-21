@@ -2,80 +2,39 @@
 @import './../../scss/variables.scss';
 
 .tickets {
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
   &__item {
     margin-bottom: 20px;
   }
-}
 
-.ticket {
-  background: $ticket-bg-color;
-  box-shadow: $box-shadow;
-  border-radius: $border-radius;
-  padding: 20px;
-  display: block;
-  text-decoration: none;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  &__error {
+    text-align: center;
+    font-size: 14px;
   }
 
-  &__price {
-    font-weight: $font-weight-semibold;
-    font-size: $font-size-text-l;
-    line-height: $line-height-l;
-    align-items: center;
-    color: $price-color;
-  }
-}
-
-.segment-route {
-  &__row {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    margin-bottom: 10px;
-
-    &:last-child {
-      margin: 0;
-    }
-  }
-
-  &__col {
-    flex: 0 0 $segment-route-col-width;
-    min-width: $segment-route-col-width;
-  }
-
-  &__header {
+  &__show-more-btn {
+    font-family: inherit;
     font-weight: $font-weight-semibold;
     font-size: $font-size-text-xs;
-    line-height: $line-height-s;
+    line-height: $line-height-m;
+    text-align: center;
     letter-spacing: $letter-spacing;
     text-transform: uppercase;
-    color: $secondary-text-color;
-  }
+    color: $btn-show-more-text-color;
+    background: $btn-show-more-bg-color;
+    border-radius: $border-radius;
+    height: $btn-height;
+    padding: 0 20px;
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    transition: opacity 0.4s;
 
-  &__text {
-    font-weight: $font-weight-semibold;
-    font-size: $font-size-text-m;
-    line-height: $line-height-m;
-    color: $primary-text-color;
-  }
-}
-
-@media screen and #{$screen-s} {
-  .segment-route {
-    &__col {
-      flex: 0 0 88px;
-      min-width: 88px;
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
