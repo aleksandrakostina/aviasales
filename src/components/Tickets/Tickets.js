@@ -14,15 +14,15 @@ const Tickets = ({ tickets, isLoading, isError, onLoadMoreClick, isLastPage, loa
   const hasContent = !isLoading && !isError;
   const error = isError && !isLoading;
   const isEmpty = !tickets.length && hasContent;
+  const content = tickets.length > 0 && hasContent;
 
   return (
     <>
       {error && <p className={style.tickets__error}>Не удалось загрузить билеты</p>}
       {!loaded && <p className={style.tickets__message}>Ищем авиабилеты...</p>}
       {isLoading && <Loading />}
-      {isEmpty ? (
-        <p className={style.tickets__message}>Рейсов, подходящих под заданные фильтры, не найдено</p>
-      ) : (
+      {isEmpty && <p className={style.tickets__message}>Рейсов, подходящих под заданные фильтры, не найдено</p>}
+      {content && (
         <div className={style.tickets}>
           <ul className={style.tickets__list}>{ticketsList}</ul>
           {!isLastPage && (
