@@ -6,31 +6,27 @@ const ONE = 'ONE';
 const TWO = 'TWO';
 const THREE = 'THREE';
 
-const initialState = [
-  { id: ALL, checked: true, name: 'Все' },
-  { id: ZERO, checked: true, name: 'Без пересадок' },
-  { id: ONE, checked: true, name: '1 пересадка' },
-  { id: TWO, checked: true, name: '2 пересадки' },
-  { id: THREE, checked: true, name: '3 пересадки' },
-];
+export const visibilityFilters = {
+  ALL,
+  ZERO,
+  ONE,
+  TWO,
+  THREE,
+};
+
+const initialState = [ALL, ZERO, ONE, TWO, THREE];
 
 const setVisibilityFilter = (state, filter) => {
-  const findedFilter = state.find((item) => item.id === filter).checked;
-
   if (filter === ALL) {
-    return findedFilter
-      ? state.map((item) => (item.checked ? { ...item, checked: false } : item))
-      : state.map((item) => (!item.checked ? { ...item, checked: true } : item));
+    return state.includes(filter) ? [] : [...state, ...initialState.filter((item) => !state.includes(item))];
   }
-  if (findedFilter) {
-    return state.find((item) => item.id === ALL).checked
-      ? state.map((item) => (item.id === ALL || item.id === filter ? { ...item, checked: !item.checked } : item))
-      : state.map((item) => (item.id === filter ? { ...item, checked: !item.checked } : item));
+  if (state.includes(filter)) {
+    return state.includes(ALL)
+      ? state.filter((item) => item !== ALL && item !== filter)
+      : state.filter((item) => item !== filter);
   }
-  if (!findedFilter) {
-    return state.find((item) => !item.checked && item.id !== filter && item.id !== ALL)
-      ? state.map((item) => (item.id === filter ? { ...item, checked: true } : item))
-      : state.map((item) => (!item.checked ? { ...item, checked: true } : item));
+  if (!state.includes(filter)) {
+    return state.length === initialState.length - 2 ? initialState : [...state, filter];
   }
   return state;
 };

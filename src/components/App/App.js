@@ -5,10 +5,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import logo from './Logo.png';
 import style from './App.module.scss';
-import Tickets from '../Tickets';
 import Filters from '../Filters';
 import Tabs from '../Tabs';
 import reducers from '../../redax/reducers';
+import VisibleTickets from '../../containers/VisibleTickets';
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 
@@ -26,7 +26,7 @@ const App = () => (
             </aside>
             <div className={style.app__content}>
               <Tabs />
-              <Tickets />
+              <VisibleTickets />
             </div>
           </div>
         </main>

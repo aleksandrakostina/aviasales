@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import style from './Tabs.module.scss';
 import { setSort } from '../../redax/actions';
-import { tabs } from '../../redax/tabs';
+import { tabs } from '../../redax/sortReducer';
 
 const Tabs = ({ changeSort, sort }) => {
   const tabsList = tabs.map((tab) => (
@@ -21,12 +21,8 @@ const Tabs = ({ changeSort, sort }) => {
   return <div className={style.tabs}>{tabsList}</div>;
 };
 
-Tabs.defaultProps = {
-  changeSort: () => {},
-};
-
 Tabs.propTypes = {
-  changeSort: PropTypes.func,
+  changeSort: PropTypes.func.isRequired,
   sort: PropTypes.string.isRequired,
 };
 
