@@ -7,14 +7,14 @@
   cursor: pointer;
 }
 
-input {
+.input {
   position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
 
-  &:checked + .check__box {
+  &:checked + .box {
     background: url('./check.svg');
     background-repeat: no-repeat;
     background-position: center;
