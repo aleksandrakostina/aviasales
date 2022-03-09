@@ -10,7 +10,7 @@ const Tabs = ({ changeSort, sort }) => {
   const tabsList = tabs.map((tab) => (
     <button
       key={tab.id}
-      className={classnames(style.tabs__btn, { [style['tabs__btn--active']]: tab.id === sort })}
+      className={classnames(style.btn, { [style.btnActive]: tab.id === sort })}
       type="button"
       onClick={() => changeSort(tab.id)}
     >

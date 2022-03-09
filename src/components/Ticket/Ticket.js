@@ -5,35 +5,31 @@ import { countStops, formatPrice, minutesToHours, formatStops, formatDate } from
 
 const Ticket = ({ ticket }) => (
   <a href="#" className={style.ticket}>
-    <div className={style.ticket__header}>
-      <div className={style.ticket__price}>{formatPrice(ticket.price)}</div>
-      <div className={style.ticket__carrier}>
+    <div className={style.header}>
+      <div className={style.price}>{formatPrice(ticket.price)}</div>
+      <div className={style.carrier}>
         <img src={`//pics.avs.io/99/36/${ticket.carrier}.png`} alt={ticket.carrier} />
       </div>
     </div>
-    <div className={style.ticket__body}>
-      <div className={style['segment-route']}>
-        <div className={style['segment-route__body']}>
-          {ticket.segments.map((segment) => (
-            <div key={segment.origin} className={style['segment-route__row']}>
-              <div className={style['segment-route__col']}>
-                <div className={style['segment-route__header']}>
-                  {segment.origin} – {segment.destination}
-                </div>
-                <div className={style['segment-route__text']}>{formatDate(segment.date, segment.duration)}</div>
-              </div>
-              <div className={style['segment-route__col']}>
-                <div className={style['segment-route__header']}>В пути</div>
-                <div className={style['segment-route__text']}>{minutesToHours(segment.duration)}</div>
-              </div>
-              <div className={style['segment-route__col']}>
-                <div className={style['segment-route__header']}>{countStops(segment.stops)}</div>
-                <div className={style['segment-route__text']}>{formatStops(segment.stops)}</div>
-              </div>
+    <div className={style.body}>
+      {ticket.segments.map((segment) => (
+        <div key={segment.origin} className={style.row}>
+          <div className={style.col}>
+            <div className={style.headerRow}>
+              {segment.origin} – {segment.destination}
             </div>
-          ))}
+            <div className={style.textRow}>{formatDate(segment.date, segment.duration)}</div>
+          </div>
+          <div className={style.col}>
+            <div className={style.headerRow}>В пути</div>
+            <div className={style.textRow}>{minutesToHours(segment.duration)}</div>
+          </div>
+          <div className={style.col}>
+            <div className={style.headerRow}>{countStops(segment.stops)}</div>
+            <div className={style.textRow}>{formatStops(segment.stops)}</div>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   </a>
 );

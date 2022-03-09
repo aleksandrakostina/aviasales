@@ -28,62 +28,60 @@ body {
 .app {
   background: $main-bg-color;
   min-height: 100vh;
+}
 
-  &__wrapper {
-    padding: 30px 0 50px;
-  }
+.wrapper {
+  padding: 30px 0 50px;
+}
 
-  &__header {
-    margin-bottom: 30px;
-  }
+.header {
+  margin-bottom: 30px;
+}
 
-  &__logo {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-  }
+.logo {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
 
-  &__container {
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 0;
-    width: 100%;
-    max-width: $width-main;
-    justify-content: center;
-    padding: 0 10px;
-    margin: 0 auto;
-    height: 100%;
-  }
+.container {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: $width-main;
+  justify-content: center;
+  padding: 0 10px;
+  margin: 0 auto;
+  height: 100%;
+}
 
-  &__content {
-    width: 100%;
-    max-width: $width-content;
-    flex-shrink: 0;
-  }
+.content {
+  width: 100%;
+  max-width: $width-content;
+  flex-shrink: 0;
+}
 
-  &__sidebar {
-    margin-right: 20px;
-    width: $width-sidebar;
-    flex-shrink: 0;
-  }
+.sidebar {
+  margin-right: 20px;
+  width: $width-sidebar;
+  flex-shrink: 0;
+}
 
-  &__filter-burger {
-    display: none;
-  }
+.filter-burger {
+  display: none;
 }
 
 @media screen and #{$screen-m} {
-  .app {
-    &__sidebar {
-      margin: 0;
-      width: 100%;
-      max-width: $width-tablet-sidebar;
-      margin-bottom: 20px;
-    }
+  .sidebar {
+    margin: 0;
+    width: 100%;
+    max-width: $width-tablet-sidebar;
+    margin-bottom: 20px;
+  }
 
-    &__container {
-      flex-direction: column;
-      align-items: center;
-    }
+  .container {
+    flex-direction: column;
+    align-items: center;
   }
 }

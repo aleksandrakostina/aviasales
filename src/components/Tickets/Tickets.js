@@ -6,7 +6,7 @@ import { ReactComponent as Loading } from './spinner.svg';
 
 const Tickets = ({ tickets, isLoading, isError, onLoadMoreClick, isLastPage, loaded }) => {
   const ticketsList = tickets.map((ticket) => (
-    <li key={ticket.id} className={style.tickets__item}>
+    <li key={ticket.id} className={style.item}>
       <Ticket ticket={ticket} />
     </li>
   ));
@@ -18,15 +18,15 @@ const Tickets = ({ tickets, isLoading, isError, onLoadMoreClick, isLastPage, loa
 
   return (
     <>
-      {error && <p className={style.tickets__error}>Не удалось загрузить билеты</p>}
-      {!loaded && <p className={style.tickets__message}>Ищем авиабилеты...</p>}
+      {error && <p className={style.error}>Не удалось загрузить билеты</p>}
+      {!loaded && <p className={style.message}>Ищем авиабилеты...</p>}
       {isLoading && <Loading />}
-      {isEmpty && <p className={style.tickets__message}>Рейсов, подходящих под заданные фильтры, не найдено</p>}
+      {isEmpty && <p className={style.message}>Рейсов, подходящих под заданные фильтры, не найдено</p>}
       {content && (
         <div className={style.tickets}>
-          <ul className={style.tickets__list}>{ticketsList}</ul>
+          <ul className={style.list}>{ticketsList}</ul>
           {!isLastPage && (
-            <button className={style['tickets__show-more-btn']} type="button" onClick={onLoadMoreClick}>
+            <button className={style.showMoreBtn} type="button" onClick={onLoadMoreClick}>
               Показать еще 5 билетов!
             </button>
           )}

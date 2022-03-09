@@ -8,62 +8,61 @@
   padding: 20px;
   display: block;
   text-decoration: none;
+}
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  &__price {
-    font-weight: $font-weight-semibold;
-    font-size: $font-size-text-l;
-    line-height: $line-height-l;
-    align-items: center;
-    color: $price-color;
+.price {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-text-l;
+  line-height: $line-height-l;
+  align-items: center;
+  color: $price-color;
+}
+
+.body {
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin: 0;
   }
 }
 
-.segment-route {
-  &__row {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.col {
+  flex: 0 0 $segment-route-col-width;
+  min-width: $segment-route-col-width;
+}
 
-    &:last-child {
-      margin: 0;
-    }
-  }
+.headerRow {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-text-xs;
+  line-height: $line-height-s;
+  letter-spacing: $letter-spacing;
+  text-transform: uppercase;
+  color: $secondary-text-color;
+}
 
-  &__col {
-    flex: 0 0 $segment-route-col-width;
-    min-width: $segment-route-col-width;
-  }
-
-  &__header {
-    font-weight: $font-weight-semibold;
-    font-size: $font-size-text-xs;
-    line-height: $line-height-s;
-    letter-spacing: $letter-spacing;
-    text-transform: uppercase;
-    color: $secondary-text-color;
-  }
-
-  &__text {
-    font-weight: $font-weight-semibold;
-    font-size: $font-size-text-m;
-    line-height: $line-height-m;
-    color: $primary-text-color;
-  }
+.textRow {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-text-m;
+  line-height: $line-height-m;
+  color: $primary-text-color;
 }
 
 @media screen and #{$screen-s} {
-  .segment-route {
-    &__col {
-      flex: 0 0 88px;
-      min-width: 88px;
-    }
+  .col {
+    flex: 0 0 88px;
+    min-width: 88px;
   }
 }

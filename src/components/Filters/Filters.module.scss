@@ -4,32 +4,32 @@
   background: $filter-bg-color;
   box-shadow: $box-shadow;
   border-radius: $border-radius;
+}
 
-  &__title {
-    font-weight: $font-weight-semibold;
-    font-size: $font-size-text-xs;
-    line-height: $line-height-xs;
-    letter-spacing: $letter-spacing;
-    text-transform: uppercase;
-    color: $filter-text-color;
-    margin: 0;
-    padding: 20px 20px 15px;
-  }
+.title {
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-text-xs;
+  line-height: $line-height-xs;
+  letter-spacing: $letter-spacing;
+  text-transform: uppercase;
+  color: $filter-text-color;
+  margin: 0;
+  padding: 20px 20px 15px;
+}
 
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    padding-bottom: 10px;
-  }
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-bottom: 10px;
+}
 
-  &__item {
-    font-size: $font-size-text-s;
-    line-height: $line-height-m;
-    color: $filter-text-color;
+.item {
+  font-size: $font-size-text-s;
+  line-height: $line-height-m;
+  color: $filter-text-color;
 
-    &:hover {
-      background: $filter-hover;
-    }
+  &:hover {
+    background: $filter-hover;
   }
 }

@@ -15,7 +15,7 @@ const initialState = CHEAP;
 const sortReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_SORT:
-      return action.sort;
+      return action.payload;
     default:
       return state;
   }

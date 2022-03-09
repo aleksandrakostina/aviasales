@@ -17,14 +17,14 @@ const ticketsReducer = (state = initialState, action = {}) => {
         ...state,
         tickets: [
           ...state.tickets,
-          ...action.tickets.map((ticket, id) => ({ ...ticket, id: id + state.tickets.length })),
+          ...action.payload.map((ticket, id) => ({ ...ticket, id: id + state.tickets.length })),
         ],
         isLoading: false,
       };
     case GET_TICKETS_FAILURE:
       return { ...state, isError: true, isLoading: false, loaded: true };
     case SET_PAGE:
-      return { ...state, page: action.page };
+      return { ...state, page: action.payload };
     case LOADED:
       return { ...state, loaded: true };
     default:

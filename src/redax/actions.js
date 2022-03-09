@@ -11,14 +11,14 @@ export const SET_PAGE = 'SET_PAGE';
 
 export const LOADED = 'LOADED';
 
-export const setSort = (sort) => ({ type: SET_SORT, sort });
-export const setFilter = (filter) => ({ type: SET_FILTER, filter });
+export const setSort = (payload) => ({ type: SET_SORT, payload });
+export const setFilter = (payload) => ({ type: SET_FILTER, payload });
 
 export const getTicketsRequest = () => ({ type: GET_TICKETS_REQUEST });
-export const getTicketsSuccess = (tickets) => ({ type: GET_TICKETS_SUCCESS, tickets });
+export const getTicketsSuccess = (payload) => ({ type: GET_TICKETS_SUCCESS, payload });
 export const getTicketsFailure = () => ({ type: GET_TICKETS_FAILURE });
 
-export const setPage = (page) => ({ type: SET_PAGE, page });
+export const setPage = (payload) => ({ type: SET_PAGE, payload });
 
 export const loaded = () => ({ type: LOADED });
 

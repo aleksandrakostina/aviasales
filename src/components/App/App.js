@@ -15,16 +15,16 @@ const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
 const App = () => (
   <Provider store={store}>
     <div className={style.app}>
-      <div className={style.app__wrapper}>
-        <header className={style.app__header}>
-          <img className={style.app__logo} src={logo} alt="logo" />
+      <div className={style.wrapper}>
+        <header className={style.header}>
+          <img className={style.logo} src={logo} alt="logo" />
         </header>
-        <main className={style.app__main}>
-          <div className={style.app__container}>
-            <aside className={style.app__sidebar}>
+        <main className={style.main}>
+          <div className={style.container}>
+            <aside className={style.sidebar}>
               <Filters />
             </aside>
-            <div className={style.app__content}>
+            <div className={style.content}>
               <Tabs />
               <VisibleTickets />
             </div>
