@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import style from './Tabs.module.scss';
 import { setSort } from '../../redax/actions';
 import { tabs } from '../../redax/sortReducer';
+import * as selectors from '../../redax/selectors';
 
 const Tabs = ({ changeSort, sort }) => {
   const tabsList = tabs.map((tab) => (
@@ -27,7 +28,7 @@ Tabs.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  sort: state.sort,
+  sort: selectors.getSort(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

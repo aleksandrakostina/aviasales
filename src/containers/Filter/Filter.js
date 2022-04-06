@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import CheckBox from '../../components/CheckBox';
 import { setFilter } from '../../redax/actions';
+import * as selectors from '../../redax/selectors';
 
-const mapStateToProps = (state, ownProps) => ({
-  active: state.filter.includes(ownProps.filter),
+const mapStateToProps = (state, props) => ({
+  active: selectors.getActiveFilter(state, props),
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  handleChange: () => dispatch(setFilter(ownProps.filter)),
+const mapDispatchToProps = (dispatch, props) => ({
+  handleChange: () => dispatch(setFilter(props.filter)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckBox);

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getTickets, setPage } from '../../redax/actions';
 import Tickets from '../../components/Tickets';
-import filterTickets from '../../utils/filterTickets';
-import sortTickets from '../../utils/sortTickets';
+import * as selectors from '../../redax/selectors';
 
 const TicketsContainer = ({ getTicketsList, page, setPageTickets, ...props }) => {
   useEffect(() => {
@@ -24,21 +23,14 @@ TicketsContainer.propTypes = {
   setPageTickets: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  const countTicketsOnPage = 5;
-
-  return {
-    isLoading: state.tickets.isLoading,
-    isError: state.tickets.isError,
-    page: state.tickets.page,
-    loaded: state.tickets.loaded,
-    isLastPage: state.tickets.page === Math.trunc(state.tickets.tickets.length / countTicketsOnPage),
-    tickets: sortTickets(filterTickets(state.tickets.tickets, state.filter), state.sort).slice(
-      0,
-      countTicketsOnPage * state.tickets.page
-    ),
-  };
-};
+const mapStateToProps = (state) => ({
+  isLoading: selectors.getIsLoading(state),
+  isError: selectors.getIsError(state),
+  page: selectors.getPage(state),
+  loaded: selectors.getLoaded(state),
+  isLastPage: selectors.getIsLastPage(state),
+  tickets: selectors.getSortTickets(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   getTicketsList: () => dispatch(getTickets()),
